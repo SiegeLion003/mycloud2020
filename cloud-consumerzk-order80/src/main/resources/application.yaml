@@ -1,0 +1,10 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-cousumer-zkorder
+
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
