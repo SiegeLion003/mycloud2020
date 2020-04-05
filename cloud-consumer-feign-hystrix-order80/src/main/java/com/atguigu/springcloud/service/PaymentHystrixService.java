@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.atguigu.springcloud.service.impl.PaymentHystrixServiceImpl;
+
 /**
  * Description:
  * FileName: PaymentHystrixService
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * Date: 2020/4/5
  */
 @Component
-@FeignClient(value = "cloud-provider-payment-Hystrix")
+@FeignClient(value = "cloud-provider-payment-Hystrix", fallback = PaymentHystrixServiceImpl.class )
 public interface PaymentHystrixService {
 
     @GetMapping("/payment/hystrix/ok/{id}")
